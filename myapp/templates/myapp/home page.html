@@ -1,21 +1,19 @@
 {% extends 'myapp/Base.html'%}
 {% load staticfiles %}
-<script src="{% static 'js/uploadimg.js' %}"></script>
-
+{% block body %}
 <head>
+    <link rel="stylesheet" href="{% static 'home page.css' %}">
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="{% static 'js/uploadimg.js' %}"></script>
 </head>
 
-    {% block body %}
-	<body data-spy="scroll" data-target="#menu">
+<body data-spy="scroll" data-target="#menu">
 
     <!---strat home section -->
-    <div id ="home">
-        
 
-
-
-        </div>
 			<!--- start landing page-->
 			<div class="landing">
 				<div class="home-wrap">
@@ -27,9 +25,8 @@
 			<div class="caption center-block text-center">
 				<h3>Diabetic Retinopathy Classification System</h3>
                 {% if user.username != '' %}
-				<a class="btn btn-outline-light" data-toggle="modal" href="#modaluploadForm">Diagnose</a>
+				    <a class="btn btn-outline-light" data-toggle="modal" href="#modaluploadForm">Diagnose</a>
                 {% endif %}
-				<a class="btn btn-outline-light" href="#about">Find Out More</a>
 		</div><!---end home section-->
 
 
@@ -62,8 +59,8 @@
 
 										</div>
 
-										<label class="btn1" type="submit" >Upload<input type="file" id="img-input" name="image" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow:hidden;"></label>
-                                        <button type="submit" class="btn1" >Classify</button>
+										<label class="btn1 col-12" type="submit" >Upload<input type="file" id="img-input" name="image" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow:hidden;"></label>
+                                    <button type="submit" class="btn1 col-12" >Classify</button>
 
 								</form>
 
@@ -87,55 +84,19 @@
 
 
 
-
-
-
-
-
-
-		<!--- start about section -->
+<!--- start about section -->
 		<div id="about">
-			<div class="jumbotron">
-				<h3 class="heading">About</h3>
+			<div class="jumbotron text-center">
+				<h1 class="headingg"><strong>ABOUT</strong></h1>
 				<div class="row">
-					<div class="col-md-4 text-center">
-						<h4>Full Screen Landing</h4>
-						<p>Dema8ak b2a</p>
-					</div>
-					<div class="col-md-4 text-center">
-						<h4>Smooth Scrolling</h4>
-						<p>dema8ak b2a</p>
-					</div>
-					<div class="col-md-4 text-center">
-						<h4>Contact form</h4>
-						<p>dema8ak b2a</p>
+					<div class="col-md-12 text-center">
+						<h3><strong>Group of Computer Science  Bioinformatics Section Ain Shams University Students</strong></h3>
+						<p>Develop robust diagnostic System to automate DR screening. Referral of eyes with DR to an ophthalmologist for further evaluation and treatment would aid in reducing the rate of vision loss, enabling timely and accurate diagnoses.
+						</p>
 					</div>
 				</div><!--- end of row-->
 			</div><!--- end of jumbtron-->
 		</div> <!---enf of the about section-->
-
-
-		<!---start of portfolio section-->
-		<div id="portfolio">
-			<div class="container-fluid padding text-center">
-				<h3 class="heading">Portfolio</h3>
-				<div class="row no-padding">
-					<div class="col-md-6">
-						<img class="portfolio" src="{% static 'img/3.jpg' %}">
-					</div>
-					<div class="col-md-6">
-						<img class="portfolio" src="{% static 'img/4.jpg' %}">
-					</div>
-					<div class="col-md-6">
-						<img class="portfolio" src="{% static 'img/5.jpg' %}">
-					</div>
-					<div class="col-md-6">
-						<img class="portfolio" src="{% static 'img/6.jpg' %}">
-					</div>
-				</div><!---end of row-->
-			</div><!---end of container fluid-->
-			
-		</div><!---end of portfolio-->
 
 		<!---start of contact section-->
 		<div id="contact">
@@ -143,19 +104,23 @@
 				<div class="row">
 					<div class="col-md-3"></div>
 					<div class="col-md-6 text-center">
-						<img src="{% static 'img/eye.jpg' %}">
-						<p>dema8ak b2a</p>
-						<strong>Our location</strong>
-						<p>malesh<br>mkaaaan</p>
-						<strong>Contact Info</strong>
-						<p>01014775950<br>omar.ashry3537.oa@gmail.com</p>	
+						<img src="{% static 'img/logo.png' %}">
+						<p><strong>Contact Information</strong></p>
+						<p>graduationprojectdr@gmail.com</p>
+						<a href="https://www.facebook.com"><img src="{% static 'img/facebook.png' %}"></a>
+						<a href="https://www.twitter.com"><img src="{% static 'img/twitter.png' %}"></a>
+						<a href="https://www.instagram.com"><img src="{% static 'img/instagram.png' %}"></a>
+					</div>
+					<div>
+
 					</div>
 				</div><!---end of row-->
 			</div><!---end of container fluid footer-->
 		</div><!---end of contact section-->
 
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
 	</body>
 {% endblock %}

@@ -1,7 +1,10 @@
+
 body{
 	overflow-x: hidden;
-	font-family: sans-serif;
 	color: #505962;
+	font-family: 'Roboto',sans-serif;
+    background: url(img/1.jpg) no-repeat center center fixed;
+    background-size: cover;
 }
 .navbar{
 	text-transform: uppercase;
@@ -33,17 +36,25 @@ body{
 	padding: .5rem 1.1rem;
 	font-size: 1.5rem;
 }
-h3.heading{
+h1.heading{
 	text-align: center;
-	font-size: 1.9rem;
+	font-size: 2.5rem;
 	text-transform: uppercase;
 	margin-bottom: 1.9rem;
+	color: azure;
+}
+h1.headingg{
+	text-align: center;
+	font-size: 2.5rem;
+	text-transform: uppercase;
+	margin-bottom: 1.9rem;
+	color: #505962;
 }
 .padding{
 	padding: 2rem 0;
 }
 img.portfolio{
-	max-width: 100%;
+	max-width:fit-content;
 }
 .no-padding .col-md-6{
 	padding: 0rem;
@@ -59,8 +70,19 @@ img.portfolio{
 .footer img{
 	height: 2rem;
 	margin: 1.5rem 0;
+	margin-left: 1rem;
 }
-
+.footer p{
+	font-size: 1.4rem;
+}
+.jumbotron p{
+	font-size: 1.9rem;
+	font-family: 'Times New Roman', Times, serif;
+}
+.jumbotron h3{
+	font-size: 2rem;
+	font-family: 'Times New Roman', Times, serif;
+}
 
 
 
@@ -93,7 +115,7 @@ img.portfolio{
 	background-size: cover;
 	background-position: center center;
 	-webkit-transform: translateZ(0);
-			transform: translateZ(0);
+	transform: translateZ(0);
 	will-change: transform;
 
 }

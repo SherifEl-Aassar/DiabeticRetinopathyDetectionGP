@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Diabetic Retinopathy </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'home page.css' %}">
+
 	<link rel="stylesheet" href="{% static 'login style.css' %}">
 	<link rel="stylesheet" href="{% static 'uploadimg.css' %}">
-    <link rel="stylesheet" href="{% static 'reg style.css' %}">
+
+<link rel="stylesheet" href="{% static 'home page.css' %}">
 
 </head>
 
@@ -22,9 +23,15 @@
         <!---navigation-->
         <nav class="navbar navbar-dark navbar-expand-md fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="{% static 'img/eye.jpg'%}">
+            {% if user.username != "" %}
+                <a class="navbar-brand" href="{% url 'myapp:UserHome' user %}">
+                    <img src="{% static 'img/logo.png'%}" >
                 </a>
+            {% else %}
+                <a class="navbar-brand" href="{% url 'myapp:Home' %}">
+                    <img src="{% static 'img/logo.png'%}" >
+                </a>
+            {% endif %}
                 <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -42,9 +49,6 @@
                             {% endif %}
                             <li class="nav-link">
                                 <a class="nav-link" href="#about">ABOUT</a>
-                            </li>
-                            <li class="nav-link">
-                                <a class="nav-link" href="#portfolio">PORTFOLIO</a>
                             </li>
                             <li class="nav-link">
                                 <a class="nav-link" href="#contact">CONTACT</a>
@@ -134,4 +138,3 @@
 
 {%endblock%}
 </body>
-</html>

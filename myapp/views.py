@@ -16,8 +16,10 @@ class HomePage(View):
     template_name = 'myapp/home page.html'
 
     def get(self, request):
-        logout(request)
-        return render(request, self.template_name, {})
+        if str(request.user.username) == "":
+            return render(request, self.template_name, {})
+        else:
+            return redirect('myapp:UserHome', request.user)
 
     def post(self, request):
         # self.form.username_field = request.POST.get('username')
@@ -100,12 +102,12 @@ class Registration(UserCreationForm, View):
         return render(request, self.template_name)
 
     def post(self, request):
+        # self.form = UserCreationForm(data=request.POST)
 
         self.form = UserCreationForm(request.POST)
         self.form.username_field = request.POST.get('username')
         self.form.password1_field = request.POST.get('password1')
         self.form.password2_field = request.POST.get('password2')
-        #self.form = UserCreationForm(data=request.POST)
         if self.form.is_valid():
             user = self.form.save()
             login(request, user)
@@ -163,22 +165,19 @@ class UserHome(LoginRequiredMixin, View):
             stream = request.FILES['image']
             img = Image.open(stream)
             predictions = pred.predict(img)
+            result = 0
+            max_probability = 0.0
+            for i in range(0, 5):
+                if max_probability < predictions[0][i]:
+                    max_probability = predictions[0][i]
+                    result = i + 1
 
-            max_index = 0
-            max_prob = 0
-            for i in range(0, 4):
-                if max_prob < predictions[0][i]:
-                    max_prob = predictions[0][i]
-                    max_index = i + 1
-
-            instance.stage = max_index
+            instance.stage = result
             instance.side = 'L'
             instance.save()
             user = request.user
             imagee = myImage.objects.get(user=user, pk=instance.pk)
-            return render(request, 'myapp/Stage.html', {'Stage': max_index, 'Image': imagee})
-
-
+            return render(request, 'myapp/Stage.html', {'Stage': result, 'Image': imagee})
 
 
 

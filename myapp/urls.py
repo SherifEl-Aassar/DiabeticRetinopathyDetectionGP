@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^registration/$', views.Registration.as_view(), name='registration'),
 
     path('<str:user>/home/', views.UserHome.as_view(), name='UserHome'),
+    #path('<str:user>/result', view.Result.as_view(), name='Result')
 
 
 ]
