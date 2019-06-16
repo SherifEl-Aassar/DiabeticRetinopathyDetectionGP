@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'myapp.apps.MyappConfig',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -102,6 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'myapp.CustomUser'
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/

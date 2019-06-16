@@ -7,7 +7,6 @@
 
 
 <body>
-
 <div class="modal-dialog text-center" id="modalLRForm1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="col-auto main-section">
         <div class="modal-content">
@@ -34,6 +33,21 @@
                 <div class="form-group">
                     <input type="password" name="password2" class="form-control" placeholder="Password Confirmation">
                     <p>Enter the same password as before, for verification.</p>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="first_name" class="form-control" placeholder="Enter First Name">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="last_name" class="form-control" placeholder="Enter Last Name">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="mobile_number" class="form-control" placeholder="Enter Mobile Number">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="address" class="form-control" placeholder="Enter Address">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="email" class="form-control" placeholder="Enter E-mail">
                 </div>
                 {% csrf_token %}
                 <button type="submit" class="btn"><i class="fas fa-sign-in-alt"></i>Register</button>
