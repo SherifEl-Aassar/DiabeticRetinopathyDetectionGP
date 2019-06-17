@@ -63,7 +63,7 @@
                             {% endif %}
                             {% if user.username != "" %}
                                 <li class="nav-link">
-									<a class="nav-link" href="{% url 'myapp:UserProfile' user %}" >Welcome, {{ user }} </a>
+									<a class="nav-link" href="{% url 'myapp:UserProfile' user %}" >{{ user.first_name }} {{ user.last_name }} </a>
 								</li>
                                 <form action="{% url 'myapp:logout' %}" method="post" role="form">
                                 {% csrf_token %}
