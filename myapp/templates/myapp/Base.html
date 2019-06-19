@@ -47,9 +47,13 @@
                                 <a class="nav-link" href="{% url 'myapp:UserHome' user %}">HOME</a>
                             </li>
                             {% endif %}
+                             <li class="nav-link">
+                                <a class="nav-link" href="#More">Know More</a>
+                            </li>
                             <li class="nav-link">
                                 <a class="nav-link" href="#about">ABOUT</a>
                             </li>
+
                             <li class="nav-link">
                                 <a class="nav-link" href="#contact">CONTACT</a>
                             </li>
@@ -63,13 +67,12 @@
                             {% endif %}
                             {% if user.username != "" %}
                                 <li class="nav-link">
-									<a class="nav-link" href="{% url 'myapp:UserProfile' user %}" >{{ user.first_name }} {{ user.last_name }} </a>
+									<a class="nav-link" href="{% url 'myapp:UserProfile' user %}" >Welcome, {{ user.first_name }} {{ user.last_name }} </a>
 								</li>
                                 <form action="{% url 'myapp:logout' %}" method="post" role="form">
                                 {% csrf_token %}
                                 <li class="nav-link" >
                                     <a class="nav-link" href="{% url 'myapp:logout' %}" >Logout</a>
-                                    <!--<button type="submit" class="btn btn-info">Logout <i class="fas fa-sign-in ml-1"></i></button>-->
 								</li>
                                 </form>
                             {% endif %}
@@ -110,7 +113,7 @@
                 <div class="form-group">
                     <input type="password" name="password" class="form-control" placeholder="Enter Password">
                 </div>
-                <button type="submit" class="btn1"><i class="fas fa-sign-in-alt"></i>Login</button>
+                <button type="submit" class="btn1" style="margin-left: 120px;"><i class="fas fa-sign-in-alt"></i>Login</button>
             </form>
 
             <div class="col-12 forgot">

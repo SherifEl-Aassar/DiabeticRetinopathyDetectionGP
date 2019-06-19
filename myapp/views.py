@@ -50,24 +50,7 @@ class Registration(CustomUserCreationForm, View):
             return redirect('myapp:UserHome', user.username)
         else:
             return render(request, self.template_name)
-
-
-class Login(View):
-    template_name = 'myapp/home page.html'
-    form = AuthenticationForm()
-
-    def post(self, request):
-        self.form = AuthenticationForm(data=request.POST)
-        if self.form.is_valid():
-            user = self.form.get_user()
-            login(request, user)
-            return render(request, self.template_name, {'form': self.form}, {'user': user})
-        else:
-            return render(request, self.template_name, {'form': self.form}, {'user': ""})
-
-    def get(self, request):
-        return render(request, self.template_name, {})
-
+        
 
 class Logout(View):
 
